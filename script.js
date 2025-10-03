@@ -1,4 +1,5 @@
-var tl = gsap.timeline();
+function loadingAnimation(){
+    var tl = gsap.timeline();
 
 tl.from(".line h1", {
     y: 150,
@@ -38,14 +39,55 @@ tl.to("#loader", {
     delay: 2
 });
 
+
+tl.from("#nav",{
+    opacity:0
+})
+
 tl.from("#page1", {
     delay: 0.2,
     y: 1600,
+    duration:0.6,
     opacity: 0,
     ease: "power4.out"
 });
 
 tl.set("#loader", { display: "none" });
+
+
+tl.from("#hero1 h1,#hero2 h1,#hero3 h2,#hero4 h1",{
+    y:120,
+    stager:.2
+})
+
+
+
+
+}
+
+function cursorAnimaton(){
+
+    document.addEventListener("mousemove", function(dets) {
+    gsap.to("#crsr", {
+        left: dets.x,
+        top: dets.y,
+        duration: 0.3,     // control smoothness (higher = slower)
+        ease: "power3.out" // easing for natural motion
+    });
+
+});
+
+
+
+Shery.makeMagnet("#nav-part2 h4");
+
+}
+
+loadingAnimation()
+
+cursorAnimaton()
+
+
 
 
 
